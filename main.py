@@ -45,55 +45,85 @@ def gameloop():
     
 def testboard():
   
-  testTuple = namedtuple("pos", "type", "value")
+  testTuple = namedtuple("position", "type", "value")
 
-  # Field types: 
-  #     0 - Default Go Square, Jail, Goto Jail, Squares that aren't common
-  #     1 - Asset
-  #     2 - Utility
-  #     3 - Chance
-  #     4 - Community Chest
+  # Board is referencing Standard US after Sept. 2008
+  # https://monopoly.fandom.com/wiki/Monopoly_Board
+
+  # Types in order of appearance
+  # 0 Go
+  # 1 Asset
+  # 2 Community Chest
+  # 3 Tax
+  # 4 Railroad
+  # 5 Chance
+  # 6 Jail
+  # 7 Utility
+  # 8 Free Parking
+  # 9 Go To Jail
+
+  # Although multiple squares serve no purpose/a unique one, it is easier
+  # to just define a "type" for each type of square to allow clear and
+  # coherent code in the main game loop. 
+
   
+  # TODO: Figure out where to store rent bonus (according to coloured cards)
+  # and should money owed be under value as well?
 
+  # Bottom Right Corner
   square0 = testTuple(0,0,0)
-  square1 = testTuple(1,0,0)
-  square2 = testTuple(2,0,0)
-  square3 = testTuple(3,0,0)
-  square4 = testTuple(4,0,0)
-  square5 = testTuple(5,0,0)
-  square6 = testTuple(6,0,0)
-  square7 = testTuple(7,0,0)
-  square8 = testTuple(8,0,0)
-  square9 = testTuple(9,0,0)
-  square10 = testTuple(10,0,0)
-  square11 = testTuple(11,0,0)
-  square12 = testTuple(12,0,0)
-  square13 = testTuple(13,0,0)
-  square14 = testTuple(14,0,0)
-  square15 = testTuple(15,0,0)
-  square16 = testTuple(16,0,0)
-  square17 = testTuple(17,0,0)
-  square18 = testTuple(18,0,0)
-  square19 = testTuple(19,0,0)
-  square20 = testTuple(20,0,0)
-  square21 = testTuple(21,0,0)
-  square22 = testTuple(22,0,0)
-  square23 = testTuple(23,0,0)
-  square24 = testTuple(24,0,0)
-  square25 = testTuple(25,0,0)
-  square26 = testTuple(26,0,0)
-  square27 = testTuple(27,0,0)
-  square28 = testTuple(28,0,0)
-  square29 = testTuple(29,0,0)
-  square30 = testTuple(30,0,0)
-  square31 = testTuple(31,0,0)
-  square32 = testTuple(32,0,0)
-  square33 = testTuple(33,0,0)
-  square34 = testTuple(34,0,0)
-  square35 = testTuple(35,0,0)
-  square36 = testTuple(36,0,0)
-  square37 = testTuple(37,0,0)
-  square38 = testTuple(38,0,0)
-  square39 = testTuple(39,0,0)
+
+  # Bottom Row
+  square1 = testTuple(1,1,60)
+  square2 = testTuple(2,2,0)
+  square3 = testTuple(3,1,60)
+  square4 = testTuple(4,3,0)
+  square5 = testTuple(5,4,0)
+  square6 = testTuple(6,1,100)
+  square7 = testTuple(7,5,0)
+  square8 = testTuple(8,1,100)
+  square9 = testTuple(9,1,120)
+
+  # Bottom Left Corner
+  square10 = testTuple(10,6,0)
+
+  # Left Column
+  square11 = testTuple(11,1,140)
+  square12 = testTuple(12,7,0)
+  square13 = testTuple(13,1,140)
+  square14 = testTuple(14,1,160)
+  square15 = testTuple(15,4,0)
+  square16 = testTuple(16,1,180)
+  square17 = testTuple(17,2,0)
+  square18 = testTuple(18,1,180)
+  square19 = testTuple(19,1,200)
+  
+  # Top Left Corner
+  square20 = testTuple(20,8,0)
+
+  # Top Row
+  square21 = testTuple(21,1,220)
+  square22 = testTuple(22,5,0)
+  square23 = testTuple(23,1,220)
+  square24 = testTuple(24,1,240)
+  square25 = testTuple(25,4,0)
+  square26 = testTuple(26,1,260)
+  square27 = testTuple(27,1,260)
+  square28 = testTuple(28,7,0)
+  square29 = testTuple(29,1,280)
+
+  # Top Right Corner
+  square30 = testTuple(30,9,0)
+
+  # Right Column
+  square31 = testTuple(31,1,300)
+  square32 = testTuple(32,1,300)
+  square33 = testTuple(33,2,0)
+  square34 = testTuple(34,1,320)
+  square35 = testTuple(35,4,0)
+  square36 = testTuple(36,5,0)
+  square37 = testTuple(37,1,350)
+  square38 = testTuple(38,3,0)
+  square39 = testTuple(39,1,400)
   
 
