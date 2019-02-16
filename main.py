@@ -13,10 +13,10 @@ def gameloop():
   # Turns variable, track whos turn it is, player 1 even, player 2 odd
   firstPlayer = True
   # Initialises two player classes
-  playerOne = Player()
-  playerTwo = Player()
+  playerOne = Player.Player()
+  playerTwo = Player.Player()
   # placeholder
-  board = []
+  board = initboard()
   gameEnd = False
 
   # Loop where game logic occurs
@@ -30,22 +30,35 @@ def gameloop():
       opponent = playerOne
       print("It is player two's turn.")
     print("You have ${} in the bank.".format(currentPlayer.getBalance()))
-    print("You currently own {} assets.".format(currentPlayer.getAssets().length()))
+    print("You currently own {} assets.".format(len(currentPlayer.getAssets())))
     roll = random.randint(1,6)
-    position = currentPlayer.getPosition + roll
+    position = currentPlayer.getPos() + roll
     if position > 39:
       position -= 40
     currentPlayer.setPos(position)
+
     # currentSpace = board[position]
     #if currentPlayer.owns(board[position]):
       #if opponent.owns(board[position]):
-    print("You have landed on {}.".format("placeholder"))
-    print("To view your assets, press 'v' and enter. To pass, press 'p' and enter.")
+    # print("You have landed on {}.".format(board[position].name)))
+    assetView = input("To view your assets, press 'v' and enter. To pass, press 'p' and enter.")
+
+    if assetView is "v":
+      print("You currently own...")
+      # Add assets and their rent, etc.
+
+
     
+
+
+    gameEnd = True # REMOVE LATER
     
-def testboard():
+
+#TODO RENT
+
+def initboard():
   
-  testTuple = namedtuple("position", "type", "value")
+  testTuple = namedtuple("testTuple", "name type value colour")
 
   # Board is referencing Standard US after Sept. 2008
   # https://monopoly.fandom.com/wiki/Monopoly_Board
@@ -62,68 +75,66 @@ def testboard():
   # 8 Free Parking
   # 9 Go To Jail
 
-  # Although multiple squares serve no purpose/a unique one, it is easier
-  # to just define a "type" for each type of square to allow clear and
-  # coherent code in the main game loop. 
-
-  
   # TODO: Figure out where to store rent bonus (according to coloured cards)
   # and should money owed be under value as well?
 
+  board = [
   # Bottom Right Corner
-  square0 = testTuple(0,0,0)
+  testTuple("test0",0),
 
   # Bottom Row
-  square1 = testTuple(1,1,60)
-  square2 = testTuple(2,2,0)
-  square3 = testTuple(3,1,60)
-  square4 = testTuple(4,3,0)
-  square5 = testTuple(5,4,0)
-  square6 = testTuple(6,1,100)
-  square7 = testTuple(7,5,0)
-  square8 = testTuple(8,1,100)
-  square9 = testTuple(9,1,120)
+  testTuple("test1",1,60),
+  testTuple("test2",2,0),
+  testTuple("test3",1,60),
+  testTuple("test4",3,0),
+  testTuple("test5",4,0),
+  testTuple("test6",1,100),
+  testTuple("test7",5,0),
+  testTuple("test8",1,100),
+  testTuple("test9",1,120),
 
   # Bottom Left Corner
-  square10 = testTuple(10,6,0)
+  testTuple(10,"test10",6,0),
 
   # Left Column
-  square11 = testTuple(11,1,140)
-  square12 = testTuple(12,7,0)
-  square13 = testTuple(13,1,140)
-  square14 = testTuple(14,1,160)
-  square15 = testTuple(15,4,0)
-  square16 = testTuple(16,1,180)
-  square17 = testTuple(17,2,0)
-  square18 = testTuple(18,1,180)
-  square19 = testTuple(19,1,200)
+  testTuple("test11",1,140),
+  testTuple("test12",7,0),
+  testTuple("test13",1,140),
+  testTuple("test14",1,160),
+  testTuple("test15",4,0),
+  testTuple("test16",1,180),
+  testTuple("test17",2,0),
+  testTuple("test18",1,180),
+  testTuple("test19",1,200),
   
   # Top Left Corner
-  square20 = testTuple(20,8,0)
+  testTuple("test20",8,0),
 
   # Top Row
-  square21 = testTuple(21,1,220)
-  square22 = testTuple(22,5,0)
-  square23 = testTuple(23,1,220)
-  square24 = testTuple(24,1,240)
-  square25 = testTuple(25,4,0)
-  square26 = testTuple(26,1,260)
-  square27 = testTuple(27,1,260)
-  square28 = testTuple(28,7,0)
-  square29 = testTuple(29,1,280)
+  testTuple("test21",1,220),
+  testTuple("test22",5,0),
+  testTuple("test23",1,220),
+  testTuple("test24",1,240),
+  testTuple("test25",4,0),
+  testTuple("test26",1,260),
+  testTuple("test27",1,260),
+  testTuple("test28",7,0),
+  testTuple("test29",1,280),
 
   # Top Right Corner
-  square30 = testTuple(30,9,0)
+  testTuple("test30",9,0),
 
   # Right Column
-  square31 = testTuple(31,1,300)
-  square32 = testTuple(32,1,300)
-  square33 = testTuple(33,2,0)
-  square34 = testTuple(34,1,320)
-  square35 = testTuple(35,4,0)
-  square36 = testTuple(36,5,0)
-  square37 = testTuple(37,1,350)
-  square38 = testTuple(38,3,0)
-  square39 = testTuple(39,1,400)
-  
+  testTuple("test31",1,300),
+  testTuple("test32",1,300),
+  testTuple("test33",2,0),
+  testTuple("test34",1,320),
+  testTuple("test35",4,0),
+  testTuple("test36",5,0),
+  testTuple("test37",1,350),
+  testTuple("test38",3,0),
+  testTuple("test39",1,400)
+  ]
+  return board
 
+main()
