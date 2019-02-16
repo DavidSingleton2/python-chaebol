@@ -40,7 +40,7 @@ def gameloop():
     # currentSpace = board[position]
     #if currentPlayer.owns(board[position]):
       #if opponent.owns(board[position]):
-    # print("You have landed on {}.".format(board[position].name)))
+    print("You have landed on {}.".format(board[position].name))
     assetView = input("To view your assets, press 'v' and enter. To pass, press 'p' and enter.")
 
     if assetView is "v":
@@ -58,7 +58,7 @@ def gameloop():
 
 def initboard():
   
-  testTuple = namedtuple("testTuple", "name type value colour")
+  testTuple = namedtuple("testTuple", "name type value")
 
   # Board is referencing Standard US after Sept. 2008
   # https://monopoly.fandom.com/wiki/Monopoly_Board
@@ -80,7 +80,7 @@ def initboard():
 
   board = [
   # Bottom Right Corner
-  testTuple("test0",0),
+  testTuple("test0",0,0),
 
   # Bottom Row
   testTuple("test1",1,60),
@@ -94,7 +94,7 @@ def initboard():
   testTuple("test9",1,120),
 
   # Bottom Left Corner
-  testTuple(10,"test10",6,0),
+  testTuple("test10",6,0),
 
   # Left Column
   testTuple("test11",1,140),
