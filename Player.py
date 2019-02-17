@@ -2,7 +2,8 @@ class Player:
   def __init__(self):
     self._balance = 1500
     self._position = 0
-    self._assets = []
+    self._assets = [0,1,2,3] # Array of position of assets palyer will own TEST VALUEs
+    self._id = 999 # Default ID set to 999
   
   def buyAsset(self, asset):
     self._balance -= asset.price
@@ -25,3 +26,9 @@ class Player:
 
   def getAssets(self):
     return self._assets
+
+  def setId(self, num):
+    self._id = num
+  
+  def getId(self):
+    return self._id
